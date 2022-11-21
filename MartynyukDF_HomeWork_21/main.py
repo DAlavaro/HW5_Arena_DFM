@@ -31,13 +31,13 @@ storages = {
 
 def main():
     while True:
-        # TODO: вывести содержимое складов
+        # вывести содержимое складов
         for storage_name in storages:
             print(f'\nВ {storage_name} хранится:')
             for key, value in storages[storage_name].get_items().items():
                 print(f'{value} {key}')
 
-        # TODO: Запросить у пользователя строку
+        # Запросить у пользователя строку
         user_input = input(
             '\nВведите строку в формате "Доставить 3 печеньки из склад в магазин".\n'
             'Введите "stop" или "стоп", чтобы закончить\n'
@@ -47,11 +47,11 @@ def main():
             print('До встречи в будущем')
             break
 
-        # TODO: Обработать строку, проверить на ошибки, определить товар, количество, точки отправления и назначения.
+        # Обработать строку, проверить на ошибки, определить товар, количество, точки отправления и назначения.
         try:
             request = Request(request_str=user_input, storages=storages)
 
-            # TODO: Доставить товар
+            # Доставить товар
             courier = Courier(request=request, storages=storages)
             courier.move()
         except BaseError as error:
