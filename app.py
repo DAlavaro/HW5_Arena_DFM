@@ -136,4 +136,4 @@ def choose_enemy():
 
 
 if __name__ == "__main__":
-    app.run(port=25000)
+    app.run(port=24999)
