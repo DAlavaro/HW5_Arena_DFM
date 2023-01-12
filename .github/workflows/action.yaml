@@ -13,6 +13,7 @@ jobs:
       - name: push
         run: docker push dalavaro/skypro_mart:$GITHUB_REF_NAME-$GITHUB_RUN_ID
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: checkout
