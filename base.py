@@ -54,13 +54,13 @@ class Arena(metaclass=BaseSingleton):
                 unit.stamina = unit.stamina + self.STAMINA_PER_ROUND
 
     def next_turn(self):
-        # TODO СЛЕДУЮЩИЙ ХОД -> return result | return self.enemy.hit(self.player)
-        # TODO срабатывает когда игрок пропускает ход или когда игрок наносит удар.
-        # TODO создаем поле result и проверяем что вернется в результате функции self._check_players_hp
-        # TODO если result -> возвращаем его
-        # TODO если же результата пока нет и после завершения хода игра продолжается,
-        # TODO тогда запускаем процесс регенерации стамины и здоровья для игроков (self._stamina_regeneration)
-        # TODO и вызываем функцию self.enemy.hit(self.player) - ответный удар врага
+        # СЛЕДУЮЩИЙ ХОД -> return result | return self.enemy.hit(self.player)
+        # срабатывает когда игрок пропускает ход или когда игрок наносит удар.
+        # создаем поле result и проверяем что вернется в результате функции self._check_players_hp
+        # если result -> возвращаем его
+        # если же результата пока нет и после завершения хода игра продолжается,
+        # тогда запускаем процесс регенерации стамины и здоровья для игроков (self._stamina_regeneration)
+        # и вызываем функцию self.enemy.hit(self.player) - ответный удар врага
         result = self._check_players_hp()
         if result is not None:
             return result
@@ -74,19 +74,19 @@ class Arena(metaclass=BaseSingleton):
         return self.battle_result
 
     def player_hit(self):
-        # TODO КНОПКА УДАР ИГРОКА -> return result: str
-        # TODO получаем результат от функции self.player.hit
-        # TODO запускаем следующий ход
-        # TODO возвращаем результат удара строкой
+        # КНОПКА УДАР ИГРОКА -> return result: str
+        # получаем результат от функции self.player.hit
+        # запускаем следующий ход
+        # возвращаем результат удара строкой
         result = self.player.hit(self.enemy)
         turn_result = self.next_turn()
         return f'{result}\n{turn_result}'
 
     def player_use_skill(self):
-        # TODO КНОПКА ИГРОК ИСПОЛЬЗУЕТ УМЕНИЕ
-        # TODO получаем результат от функции self.use_skill
-        # TODO включаем следующий ход
-        # TODO возвращаем результат удара строкой
+        # КНОПКА ИГРОК ИСПОЛЬЗУЕТ УМЕНИЕ
+        # получаем результат от функции self.use_skill
+        # включаем следующий ход
+        # возвращаем результат удара строкой
         result = self.player.use_skill(self.enemy)
         turn_result = self.next_turn()
         return f'{result}\n{turn_result}'

@@ -67,7 +67,7 @@ class Equipment:
 
     @staticmethod
     def _get_equipment_data() -> EquipmentData:
-        # TODO этот метод загружает json в переменную EquipmentData
+        # этот метод загружает json в переменную EquipmentData
         with open("data/equipment.json", 'r', encoding='utf-8') as file:
             data = json.load(file)
 
