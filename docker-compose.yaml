@@ -4,7 +4,7 @@ services:
   app:
     build: .
     ports:
-      - 8080:25000
+      - 80:80
     environment:
       - DB_USER=db_user
       - DB_PASSWORD=db_password
